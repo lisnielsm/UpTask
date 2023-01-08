@@ -3,17 +3,8 @@ const pug = require("pug");
 const juice = require("juice");
 const { convert } = require("html-to-text");
 const util = require("util");
-// const emailConfig = require('../config/email');
 require('dotenv').config({ path: '.env' });
 
-// const transport = nodemailer.createTransport({
-//     host: emailConfig.host,
-//     port: emailConfig.port,
-//     auth: {
-//         user: emailConfig.user,
-//         pass: emailConfig.pass
-//     },
-// });
 const transport = nodemailer.createTransport({
 	host: process.env.EMAIL_HOST,
 	port: process.env.EMAIL_PORT,
@@ -22,8 +13,6 @@ const transport = nodemailer.createTransport({
 		pass: process.env.EMAIL_PASS,
 	},
 });
-
-console.log("transport:", transport);
 
 // generar html
 const generarHTML = (archivo, opciones = {}) => {
