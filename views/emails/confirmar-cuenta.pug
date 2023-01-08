@@ -1,0 +1,11 @@
+doctype html
+html(lang="en")
+    head
+        include ../partials/header
+        style 
+            include ./email.css
+    body 
+        h2 Confirma tu cuenta UpTask
+        p Ya estas casi inscrito, solo presiona el siguiente boton
+        a(href=`${confirmarUrl}`) Confirmar Cuenta
+        p Si no puedes acceder a este enlace visita #{confirmarUrl}

@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+    head
+        include partials/header
+    body 
+        header.barra 
+            a(href="/")           
+                h1 UpTask - Administrador de Proyectos
+            a(href="/cerrar-sesion") Cerrar Sesión
+
+        main.contenedor 
+            aside.contenedor-proyectos
+                .panel.crear-proyectos 
+                    a(href="/nuevo-proyecto" class='boton' style='color: #455A64;') Nuevo Proyecto
+                        span +
+                .panel.lista-proyectos 
+                    h2 Proyectos
+                    ul#proyectos.proyectos
+                        if(proyectos.length > 0) 
+                            each proyecto in proyectos
+                                li.proyecto 
+                                    a(href=`/proyectos/${proyecto.url}`) #{proyecto.nombre}
+                        else
+                            li.proyecto 
+                                p No hay proyectos, crea uno
+
+            block contenido 
+            
+            //- pre= vardump(proyectos)
+
+        script(src="/dist/bundle.js")
